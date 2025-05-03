@@ -13,15 +13,34 @@ public class Main {
 
             while (true) {
                 System.out.printf("— Введите скорость машины №%d:%n", i + 1);
-                int speed = scanner.nextInt();
-                if (speed > 0 && speed <= 250) {
-                    cars[i] = new Car(name, speed);
-                    break;
+                String speedLine = scanner.next();
+                if (isDigits(speedLine)) {
+                    int speed = Integer.parseInt(speedLine);
+                    if (speed > 0 && speed <= 250) {
+                        cars[i] = new Car(name, speed);
+                        break;
+                    }
                 }
                 System.out.println("— Неправильная скорость");
             }
         }
         race.startRace(cars);
+    }
+
+    public static boolean isDigits(String line) {
+        String numbers = "0123456789";
+        if (line.length() > 3) {
+            return false;
+        } else {
+            boolean allContains = true;
+            for (int i = 0; i < line.length(); i++) {
+                if (!numbers.contains(String.valueOf(line.charAt(i)))) {
+                    allContains = false;
+                    break;
+                }
+            }
+            return allContains;
+        }
     }
 }
 
