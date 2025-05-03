@@ -27,6 +27,8 @@ public class Main {
         race.startRace(cars);
     }
 
+
+    //Так как в курсе ещё не знакомы с regexp и исключениями, метод для определения является ли строка трехзначным числом и менее
     public static boolean isDigits(String line) {
         String numbers = "0123456789";
         if (line.length() > 3) {
